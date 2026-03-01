@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MessageCircle, CheckCircle2, ArrowRight, Phone, Mail, Star } from "lucide-react";
+import { MessageCircle, CheckCircle2, ChevronDown, ChevronUp, Phone, Mail, Star } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const whatsappNumber = "5562992903461"; // Dr. Aleandro - Goiás (62) 99290-3461
   const whatsappMessage = "Olá! Gostaria de agendar uma consulta sobre direito previdenciário.";
 
@@ -17,6 +18,62 @@ export default function Home() {
     e.preventDefault();
     handleWhatsApp();
   };
+
+  const faqs = [
+    {
+      question: "Com quantos anos posso me aposentar?",
+      answer: "A idade mínima para aposentadoria varia conforme o tipo. Para aposentadoria por idade: 62 anos (mulheres) e 65 anos (homens). Para aposentadoria por tempo de contribuição, não há idade mínima, apenas tempo de contribuição. Consulte-me para saber qual é a melhor opção para seu caso."
+    },
+    {
+      question: "Como solicitar auxílio-acidente?",
+      answer: "O auxílio-acidente é um benefício para quem sofreu acidente de trabalho e ficou com sequelas. Você precisa: 1) Ter sofrido acidente de trabalho; 2) Ter sequelas permanentes; 3) Estar contribuindo ao INSS. Posso ajudá-lo a preparar toda a documentação e acompanhar o processo."
+    },
+    {
+      question: "Como saber se tenho direito a auxílio-acidente?",
+      answer: "Você tem direito se: sofreu acidente de trabalho, ficou com incapacidade parcial permanente, está filiado ao INSS e contribuiu por pelo menos 12 meses. Faça uma consulta comigo para analisarmos seu caso específico."
+    },
+    {
+      question: "Meu benefício foi indeferido pelo INSS, o que devo fazer?",
+      answer: "Se seu benefício foi negado, você tem direito a recorrer! Posso ajudá-lo a: 1) Analisar o motivo da negação; 2) Preparar um recurso administrativo; 3) Entrar com ação judicial se necessário. Muitos clientes conseguem reverter negações com a estratégia correta."
+    },
+    {
+      question: "Não sou registrado e sofri um acidente na empresa, tenho direito a algum benefício?",
+      answer: "Sim! Mesmo sem registro formal, você pode ter direito a indenização por danos morais e materiais. Além disso, se conseguirmos comprovar a relação de trabalho, você pode ter direito a benefícios previdenciários. Vamos analisar seu caso em detalhes."
+    },
+    {
+      question: "Qual é o valor que vocês cobram?",
+      answer: "Meus honorários são flexíveis e adaptados à sua realidade. Posso trabalhar com: 1) Honorários fixos; 2) Honorários sucumbenciais (você paga apenas se ganhar); 3) Parcelamento. Agende uma consulta gratuita para discutirmos as melhores opções para você."
+    },
+    {
+      question: "Quanto tempo leva para conseguir a aposentadoria?",
+      answer: "O tempo varia conforme o tipo de benefício e a complexidade do caso. Aposentadorias simples podem levar 2-4 meses. Casos mais complexos podem levar 6-12 meses ou mais. Vou orientá-lo sobre os prazos específicos do seu caso."
+    },
+    {
+      question: "Vocês atuam em qual região?",
+      answer: "Atuo principalmente em Anápolis e região de Goiás, mas posso ajudá-lo em qualquer lugar do Brasil! Muitos clientes são atendidos remotamente via WhatsApp, email e videoconferência. Fale comigo para conhecer as melhores opções."
+    }
+  ];
+
+  const testimonials = [
+    { 
+      name: "Cliente do Google", 
+      text: "Venha conhecer nosso escritório, atendimento personalizado e humanitário, para atender todas as suas necessidades jurídicas.",
+      rating: 5,
+      date: "Jan 16, 2026"
+    },
+    { 
+      name: "Cliente Satisfeito", 
+      text: "Estudei e me formei advogado, não só como profissão, mas uma maneira de ajudar as pessoas. Sempre disposto a ajudar!",
+      rating: 5,
+      date: "Sep 8, 2025"
+    },
+    { 
+      name: "Recomendação Google", 
+      text: "Especialista em direito previdenciário com atendimento humanitário e personalizado. Recomendo!",
+      rating: 5,
+      date: "Recente"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -115,7 +172,7 @@ export default function Home() {
               { number: "25+", label: "Anos de Experiência" },
               { number: "5K+", label: "Clientes Satisfeitos" },
               { number: "98%", label: "Taxa de Sucesso" },
-              { number: "R$ 50M+", label: "Recuperados para Clientes" }
+              { number: "4.9⭐", label: "Avaliação Google" }
             ].map((stat, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-4xl font-bold text-amber-500 mb-2">{stat.number}</div>
@@ -173,21 +230,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Depoimentos Section */}
+      {/* FAQ Section */}
       <section className="py-24 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">Perguntas Frequentes</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-amber-500 mx-auto"></div>
+            <p className="text-xl text-slate-300 mt-6">Respostas para suas dúvidas sobre direito previdenciário</p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <Card 
+                key={idx}
+                className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-amber-600/30 overflow-hidden"
+              >
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === idx ? null : idx)}
+                  className="w-full px-8 py-6 flex justify-between items-center hover:bg-amber-600/10 transition-colors"
+                >
+                  <h3 className="text-lg font-bold text-white text-left">{faq.question}</h3>
+                  {expandedFaq === idx ? (
+                    <ChevronUp className="text-amber-500 flex-shrink-0" size={24} />
+                  ) : (
+                    <ChevronDown className="text-amber-500 flex-shrink-0" size={24} />
+                  )}
+                </button>
+                
+                {expandedFaq === idx && (
+                  <div className="px-8 py-6 bg-slate-900/50 border-t border-amber-600/20">
+                    <p className="text-slate-300 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Depoimentos Section */}
+      <section className="py-24 px-4 bg-slate-900/50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-6">O Que Meus Clientes Dizem</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-amber-500 mx-auto"></div>
             <p className="text-xl text-slate-300 mt-6">Histórias de sucesso e transformação</p>
+            <p className="text-amber-400 font-semibold mt-4">⭐ 4.9 de 5 - 40+ avaliações no Google</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Maria Silva", text: "Consegui minha aposentadoria em 3 meses! Aleandro foi impecável do início ao fim.", rating: 5 },
-              { name: "João Santos", text: "Aumentei meu benefício em R$ 800/mês com a revisão. Muito obrigado!", rating: 5 },
-              { name: "Ana Costa", text: "Profissional atencioso, competente e que realmente se importa com seus clientes.", rating: 5 }
-            ].map((testimonial, idx) => (
+            {testimonials.map((testimonial, idx) => (
               <Card key={idx} className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-amber-600/30 p-8">
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -196,6 +288,7 @@ export default function Home() {
                 </div>
                 <p className="text-slate-200 mb-4 italic">"{testimonial.text}"</p>
                 <p className="text-amber-500 font-bold">{testimonial.name}</p>
+                <p className="text-slate-400 text-sm">{testimonial.date}</p>
               </Card>
             ))}
           </div>
@@ -319,10 +412,12 @@ export default function Home() {
       {/* Botão Flutuante WhatsApp */}
       <button
         onClick={handleWhatsApp}
-        className="fixed bottom-8 right-8 bg-amber-600 hover:bg-amber-700 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-40 animate-pulse"
+        className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-40 animate-pulse"
         title="Fale conosco no WhatsApp"
       >
-        <MessageCircle size={32} />
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.536.946-2.504 2.404-2.652 4.04-.079 1.022.165 2.051.455 3.03.059.230.122.461.190.69l.774 2.847-.928 3.385c-.115.423-.084.856.093 1.26.464 1.414 1.948 2.424 3.515 2.424.315 0 .631-.025.946-.074 1.236-.167 2.447-.645 3.416-1.413 1.02-.827 1.674-1.945 1.674-3.15 0-.735-.213-1.435-.595-2.038 1.354-1.786 2.213-4.031 2.213-6.45 0-.384-.035-.768-.105-1.144a9.865 9.865 0 00-1.457-4.121 9.882 9.882 0 00-3.114-3.172 9.9 9.9 0 00-4.795-1.247z"/>
+        </svg>
       </button>
     </div>
   );
