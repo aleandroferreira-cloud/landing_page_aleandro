@@ -56,20 +56,20 @@ export default function Home() {
 
   const testimonials = [
     { 
-      name: "Cliente do Google", 
+      name: "Cliente Satisfeito", 
       text: "Venha conhecer nosso escritório, atendimento personalizado e humanitário, para atender todas as suas necessidades jurídicas.",
       rating: 5,
       date: "Jan 16, 2026"
     },
     { 
-      name: "Cliente Satisfeito", 
+      name: "Cliente Recomenda", 
       text: "Estudei e me formei advogado, não só como profissão, mas uma maneira de ajudar as pessoas. Sempre disposto a ajudar!",
       rating: 5,
       date: "Sep 8, 2025"
     },
     { 
-      name: "Recomendação Google", 
-      text: "Especialista em direito previdenciário com atendimento humanitário e personalizado. Recomendo!",
+      name: "Excelente Atendimento", 
+      text: "Atendimento profissional, competente e sempre disponível. Recomendo para quem precisa de orientação em direito previdenciário!",
       rating: 5,
       date: "Recente"
     }
@@ -91,13 +91,13 @@ export default function Home() {
               <div className="text-xs text-amber-600">ADVOCACIA</div>
             </div>
           </div>
-          <Button 
-            onClick={handleWhatsApp}
-            className="bg-amber-600 hover:bg-amber-700 text-white gap-2 rounded-full"
-          >
-            <MessageCircle size={18} />
-            Fale Conosco
-          </Button>
+            <Button 
+              onClick={handleWhatsApp}
+              className="bg-green-500 hover:bg-green-600 text-white gap-2 rounded-full"
+            >
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029111455/PopmGcJiGYmBGDP3pSyZ4Z/pasted_file_qieFnH_image_ddc5612f.png" alt="WhatsApp" className="w-5 h-5" />
+              Fale Conosco
+            </Button>
         </div>
       </nav>
 
@@ -137,9 +137,9 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   onClick={handleWhatsApp}
-                  className="bg-amber-600 hover:bg-amber-700 text-white text-lg py-7 px-10 gap-2 rounded-full shadow-lg shadow-amber-600/30"
+                  className="bg-green-500 hover:bg-green-600 text-white text-lg py-7 px-10 gap-2 rounded-full shadow-lg shadow-green-500/30"
                 >
-                  <MessageCircle size={22} />
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029111455/PopmGcJiGYmBGDP3pSyZ4Z/pasted_file_qieFnH_image_ddc5612f.png" alt="WhatsApp" className="w-6 h-6" />
                   PRECISO DE AJUDA
                 </Button>
                 <Button 
@@ -381,9 +381,9 @@ export default function Home() {
             </div>
             <Button 
               type="submit"
-              className="w-full bg-amber-600 hover:bg-amber-700 text-white text-lg py-7 gap-2 rounded-full shadow-lg shadow-amber-600/30"
+              className="w-full bg-green-500 hover:bg-green-600 text-white text-lg py-7 gap-2 rounded-full shadow-lg shadow-green-500/30"
             >
-              <MessageCircle size={22} />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029111455/PopmGcJiGYmBGDP3pSyZ4Z/pasted_file_qieFnH_image_ddc5612f.png" alt="WhatsApp" className="w-6 h-6" />
               ENVIAR E FALAR NO WHATSAPP
             </Button>
           </form>
@@ -415,9 +415,7 @@ export default function Home() {
         className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-40 animate-pulse"
         title="Fale conosco no WhatsApp"
       >
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.536.946-2.504 2.404-2.652 4.04-.079 1.022.165 2.051.455 3.03.059.230.122.461.190.69l.774 2.847-.928 3.385c-.115.423-.084.856.093 1.26.464 1.414 1.948 2.424 3.515 2.424.315 0 .631-.025.946-.074 1.236-.167 2.447-.645 3.416-1.413 1.02-.827 1.674-1.945 1.674-3.15 0-.735-.213-1.435-.595-2.038 1.354-1.786 2.213-4.031 2.213-6.45 0-.384-.035-.768-.105-1.144a9.865 9.865 0 00-1.457-4.121 9.882 9.882 0 00-3.114-3.172 9.9 9.9 0 00-4.795-1.247z"/>
-        </svg>
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029111455/PopmGcJiGYmBGDP3pSyZ4Z/pasted_file_qieFnH_image_ddc5612f.png" alt="WhatsApp" className="w-8 h-8" />
       </button>
     </div>
   );
