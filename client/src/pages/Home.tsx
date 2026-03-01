@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-  const whatsappNumber = "556299303461"; // Dr. Aleandro - Goiás - CORRIGIDO
+  const whatsappNumber = "5562992903461"; // Dr. Aleandro - Goiás (62) 99290-3461
   const whatsappMessage = "Olá! Gostaria de agendar uma consulta sobre direito previdenciário.";
 
   const handleWhatsApp = () => {
@@ -54,15 +54,15 @@ export default function Home() {
         <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              {/* Logo Circular com Iniciais */}
-              <div className="mb-8 flex items-center gap-4">
-                <div className="w-20 h-20 rounded-full border-2 border-amber-600 flex items-center justify-center bg-gradient-to-br from-amber-600/20 to-amber-700/10">
-                  <span className="text-4xl font-bold text-amber-500">AF</span>
-                </div>
-                <div>
-                  <p className="text-amber-600 text-sm font-semibold tracking-widest">ESPECIALISTA EM</p>
-                  <p className="text-white text-lg font-bold">DIREITO PREVIDENCIÁRIO</p>
-                </div>
+              {/* Logo Integrada */}
+              <div className="mb-12">
+                <img 
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663029111455/PopmGcJiGYmBGDP3pSyZ4Z/pasted_file_WN3qtB_image_127a3f70.png"
+                  alt="Logo ADV. Aleandro Ferreira"
+                  className="h-32 w-auto mb-6"
+                />
+                <p className="text-amber-600 text-sm font-semibold tracking-widest">ESPECIALISTA EM</p>
+                <p className="text-white text-2xl font-bold">DIREITO PREVIDENCIÁRIO</p>
               </div>
 
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
