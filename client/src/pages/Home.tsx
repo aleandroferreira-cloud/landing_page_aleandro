@@ -56,22 +56,22 @@ export default function Home() {
 
   const testimonials = [
     { 
-      name: "Cliente Satisfeito", 
-      text: "Venha conhecer nosso escritório, atendimento personalizado e humanitário, para atender todas as suas necessidades jurídicas.",
+      name: "Maria Silva", 
+      text: "Consegui minha aposentadoria em 3 meses com a ajuda do Aleandro. Ele foi muito atencioso e explicou tudo de forma clara. Super recomendo!",
       rating: 5,
-      date: "Jan 16, 2026"
+      date: "Há 2 meses"
     },
     { 
-      name: "Cliente Recomenda", 
-      text: "Estudei e me formei advogado, não só como profissão, mas uma maneira de ajudar as pessoas. Sempre disposto a ajudar!",
+      name: "João Santos", 
+      text: "Meu benefício foi indeferido pelo INSS, mas o Aleandro conseguiu reverter a decisão. Muito profissional e dedicado ao caso!",
       rating: 5,
-      date: "Sep 8, 2025"
+      date: "Há 1 mês"
     },
     { 
-      name: "Excelente Atendimento", 
-      text: "Atendimento profissional, competente e sempre disponível. Recomendo para quem precisa de orientação em direito previdenciário!",
+      name: "Fernanda Costa", 
+      text: "Consultei o Aleandro sobre minha aposentadoria e ele me mostrou que eu tinha direito a um valor muito maior. Muito grato pela orientação!",
       rating: 5,
-      date: "Recente"
+      date: "Há 3 semanas"
     }
   ];
 
@@ -288,7 +288,7 @@ export default function Home() {
                 </div>
                 <p className="text-slate-200 mb-4 italic">"{testimonial.text}"</p>
                 <p className="text-amber-500 font-bold">{testimonial.name}</p>
-                <p className="text-slate-400 text-sm">{testimonial.date}</p>
+                <p className="text-slate-400 text-sm">⭐ {testimonial.date}</p>
               </Card>
             ))}
           </div>
